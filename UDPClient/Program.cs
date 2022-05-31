@@ -25,7 +25,7 @@ namespace UDPClient
 
                 //Encoding is the process of transforming a set of Unicode characters
                 //into a sequence of bytes. Opposite, decoding is the process of transforming a sequence of encoded bytes into a set of Unicode characters
-                IPEndPoint clientEndPoint = null;
+                IPEndPoint EndPoint = null;
 
                 //4 parameters are:
                 //The message as a byte array
@@ -40,7 +40,7 @@ namespace UDPClient
                 socket.Send(data, data.Length, "127.0.0.1", 5005);
 
                 //recieve
-                byte[] dataServer = socket.Receive(ref clientEndPoint);
+                byte[] dataServer = socket.Receive(ref EndPoint);
                 string recivedMessage = Encoding.UTF8.GetString(dataServer);
 
                 Console.WriteLine("Server sent message: " + recivedMessage);
